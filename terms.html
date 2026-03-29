@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — edhivo</title>
+  <meta name="description" content="edhivo terms of service — the rules and guidelines for using our products.">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="wordmark" aria-label="edhivo home">
+        <svg class="wordmark-icon" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L28 10V22L16 30L4 22V10L16 2Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span>edhivo</span>
+      </a>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="legal-page">
+      <div class="container">
+        <h1 class="legal-title">Terms of Service</h1>
+        <p class="legal-updated">Last updated: March 29, 2026</p>
+
+        <div class="legal-content">
+          <section>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using Edhivo's services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+          </section>
+
+          <section>
+            <h2>2. Description of Service</h2>
+            <p>Edhivo provides educational technology products including interactive learning platforms and vocabulary study tools. We reserve the right to modify, suspend, or discontinue any part of the service at any time.</p>
+          </section>
+
+          <section>
+            <h2>3. User Accounts</h2>
+            <p>To access certain features of our services, you may need to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+          </section>
+
+          <section>
+            <h2>4. Acceptable Use</h2>
+            <p>You agree not to:</p>
+            <ul>
+              <li>Use the service for any unlawful purpose or in violation of any applicable laws.</li>
+              <li>Attempt to gain unauthorized access to any part of the service.</li>
+              <li>Interfere with or disrupt the service or servers connected to the service.</li>
+              <li>Upload or transmit any harmful code, viruses, or malicious content.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>5. Intellectual Property</h2>
+            <p>All content, features, and functionality of our services are owned by Edhivo and are protected by international copyright, trademark, and other intellectual property laws.</p>
+          </section>
+
+          <section>
+            <h2>6. Limitation of Liability</h2>
+            <p>Edhivo shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.</p>
+          </section>
+
+          <section>
+            <h2>7. Changes to Terms</h2>
+            <p>We reserve the right to modify these terms at any time. We will notify users of any material changes by posting the updated terms on our website. Your continued use of the service after changes constitutes acceptance of the modified terms.</p>
+          </section>
+
+          <section>
+            <h2>8. Contact Us</h2>
+            <p>If you have any questions about these Terms of Service, please contact us at: <a href="mailto:tryedhivo@gmail.com">tryedhivo@gmail.com</a>.</p>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none;">
+        <span>&copy; <script>document.write(new Date().getFullYear())</script> Edhivo. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById("nav");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 8);
+    }, { passive: true });
+  </script>
+</body>
+</html>

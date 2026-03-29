@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>edhivo — Building the future of education</title>
+  <meta name="title" content="edhivo — Building the future of education">
+  <meta name="description" content="edhivo builds tools that make learning stick. Explore our interactive learning platform and vocabulary apps.">
+  <meta name="keywords" content="education, learning, edtech, interactive platform, vocabulary, GRE prep">
+  <meta name="author" content="edhivo">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://edhivo.com/">
+  <meta property="og:title" content="edhivo — Building the future of education">
+  <meta property="og:description" content="edhivo builds tools that make learning stick. Explore our interactive learning platform and vocabulary apps.">
+  <meta property="og:image" content="/assets/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://edhivo.com/">
+  <meta property="twitter:title" content="edhivo — Building the future of education">
+  <meta property="twitter:description" content="edhivo builds tools that make learning stick. Explore our interactive learning platform and vocabulary apps.">
+  <meta property="twitter:image" content="/assets/og-image.png">
+
+  <!-- Additional -->
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="wordmark" aria-label="edhivo home" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <svg class="wordmark-icon" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L28 10V22L16 30L4 22V10L16 2Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span>edhivo</span>
+      </a>
+      <nav>
+        <a href="#products" class="nav-link">Products</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div class="hero-art-wrapper">
+        <img src="assets/hero-art.svg" alt="" class="hero-art" aria-hidden="true" />
+      </div>
+      <div class="container hero-content">
+        <h1 class="hero-title">
+          <span class="hero-line hero-line-1">
+            <span class="word">Building</span>
+          </span>
+          <span class="hero-line hero-line-2">
+            <span class="word">the future</span>
+          </span>
+          <span class="hero-line hero-line-3">
+            <span class="word">of&nbsp;</span><em class="word hero-emphasis">education</em>
+          </span>
+        </h1>
+        <p class="hero-subtitle">
+          We build tools that make learning <span class="flicker-word" data-text="stick">stick</span>. Built for students and educators who expect more.
+        </p>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+      <div class="container">
+        <span class="section-label">Products</span>
+        <div id="products-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Institution Selector Modal -->
+  <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <h3 id="modal-title">Select your institution</h3>
+        <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="footer-logo" aria-label="edhivo">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 2L28 10V22L16 30L4 22V10L16 2Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <span>edhivo</span>
+          </div>
+          <p class="footer-desc">Building tools that make learning stick.</p>
+        </div>
+
+        <!-- Products -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Products</h4>
+          <ul class="footer-links">
+            <li><a href="#products">The Platform</a></li>
+            <li><a href="https://vocably.edhivo.com" target="_blank" rel="noopener">Vocably</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="mailto:tryedhivo@gmail.com">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                tryedhivo@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="tel:+19298420081">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +1 (929) 842-0081
+              </a>
+            </li>
+            <li>
+              <a href="tel:+918866835208">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +91 88668 35208
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Copyright -->
+        <p class="footer-copyright">&copy; <script>document.write(new Date().getFullYear())</script> Edhivo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

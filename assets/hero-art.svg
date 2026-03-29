@@ -1,0 +1,428 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="fadeLeft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#000" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lineGrad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#555" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="lineGrad2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#222" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#888" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="pulseGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#333" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="orbGlow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#ccc"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Animated dash pattern -->
+    <style>
+      @keyframes dash {
+        to { stroke-dashoffset: -60; }
+      }
+      @keyframes dash-reverse {
+        to { stroke-dashoffset: 60; }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.4; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.15); }
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes orbit {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes fadeInOut {
+        0%, 100% { opacity: 0.15; }
+        50% { opacity: 0.5; }
+      }
+      .flow-line {
+        stroke-dasharray: 12 48;
+        animation: dash 3s linear infinite;
+      }
+      .flow-line-reverse {
+        stroke-dasharray: 12 48;
+        animation: dash-reverse 4s linear infinite;
+      }
+      .flow-line-slow {
+        stroke-dasharray: 8 52;
+        animation: dash 5s linear infinite;
+      }
+      .pulse-node {
+        animation: pulse 3s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .pulse-node-delayed {
+        animation: pulse 3s ease-in-out 1s infinite;
+        transform-origin: center;
+      }
+      .pulse-node-delayed2 {
+        animation: pulse 3s ease-in-out 2s infinite;
+        transform-origin: center;
+      }
+      .float-slow {
+        animation: float 6s ease-in-out infinite;
+      }
+      .float-medium {
+        animation: float 4s ease-in-out 1s infinite;
+      }
+      .float-fast {
+        animation: float 3.5s ease-in-out 0.5s infinite;
+      }
+      .orbit-slow {
+        animation: orbit 20s linear infinite;
+        transform-origin: 600px 300px;
+      }
+      .shimmer {
+        animation: fadeInOut 4s ease-in-out infinite;
+      }
+      .shimmer-delayed {
+        animation: fadeInOut 4s ease-in-out 2s infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- === Background subtle grid === -->
+  <rect width="1200" height="600" fill="none"/>
+
+  <!-- Dot grid pattern - sparse, futuristic -->
+  <g opacity="0.08">
+    <!-- Horizontal lines of dots -->
+    <g>
+      <circle cx="100" cy="100" r="1.2" fill="#000"/>
+      <circle cx="160" cy="100" r="1.2" fill="#000"/>
+      <circle cx="220" cy="100" r="1.2" fill="#000"/>
+      <circle cx="280" cy="100" r="1.2" fill="#000"/>
+      <circle cx="340" cy="100" r="1.2" fill="#000"/>
+      <circle cx="400" cy="100" r="1.2" fill="#000"/>
+      <circle cx="460" cy="100" r="1.2" fill="#000"/>
+      <circle cx="520" cy="100" r="1.2" fill="#000"/>
+      <circle cx="580" cy="100" r="1.2" fill="#000"/>
+      <circle cx="640" cy="100" r="1.2" fill="#000"/>
+      <circle cx="700" cy="100" r="1.2" fill="#000"/>
+      <circle cx="760" cy="100" r="1.2" fill="#000"/>
+      <circle cx="820" cy="100" r="1.2" fill="#000"/>
+      <circle cx="880" cy="100" r="1.2" fill="#000"/>
+      <circle cx="940" cy="100" r="1.2" fill="#000"/>
+      <circle cx="1000" cy="100" r="1.2" fill="#000"/>
+      <circle cx="1060" cy="100" r="1.2" fill="#000"/>
+    </g>
+    <g>
+      <circle cx="100" cy="200" r="1.2" fill="#000"/>
+      <circle cx="160" cy="200" r="1.2" fill="#000"/>
+      <circle cx="220" cy="200" r="1.2" fill="#000"/>
+      <circle cx="280" cy="200" r="1.2" fill="#000"/>
+      <circle cx="340" cy="200" r="1.2" fill="#000"/>
+      <circle cx="400" cy="200" r="1.2" fill="#000"/>
+      <circle cx="460" cy="200" r="1.2" fill="#000"/>
+      <circle cx="520" cy="200" r="1.2" fill="#000"/>
+      <circle cx="580" cy="200" r="1.2" fill="#000"/>
+      <circle cx="640" cy="200" r="1.2" fill="#000"/>
+      <circle cx="700" cy="200" r="1.2" fill="#000"/>
+      <circle cx="760" cy="200" r="1.2" fill="#000"/>
+      <circle cx="820" cy="200" r="1.2" fill="#000"/>
+      <circle cx="880" cy="200" r="1.2" fill="#000"/>
+      <circle cx="940" cy="200" r="1.2" fill="#000"/>
+      <circle cx="1000" cy="200" r="1.2" fill="#000"/>
+      <circle cx="1060" cy="200" r="1.2" fill="#000"/>
+    </g>
+    <g>
+      <circle cx="100" cy="300" r="1.2" fill="#000"/>
+      <circle cx="160" cy="300" r="1.2" fill="#000"/>
+      <circle cx="220" cy="300" r="1.2" fill="#000"/>
+      <circle cx="280" cy="300" r="1.2" fill="#000"/>
+      <circle cx="340" cy="300" r="1.2" fill="#000"/>
+      <circle cx="400" cy="300" r="1.2" fill="#000"/>
+      <circle cx="460" cy="300" r="1.2" fill="#000"/>
+      <circle cx="520" cy="300" r="1.2" fill="#000"/>
+      <circle cx="580" cy="300" r="1.2" fill="#000"/>
+      <circle cx="640" cy="300" r="1.2" fill="#000"/>
+      <circle cx="700" cy="300" r="1.2" fill="#000"/>
+      <circle cx="760" cy="300" r="1.2" fill="#000"/>
+      <circle cx="820" cy="300" r="1.2" fill="#000"/>
+      <circle cx="880" cy="300" r="1.2" fill="#000"/>
+      <circle cx="940" cy="300" r="1.2" fill="#000"/>
+      <circle cx="1000" cy="300" r="1.2" fill="#000"/>
+      <circle cx="1060" cy="300" r="1.2" fill="#000"/>
+    </g>
+    <g>
+      <circle cx="100" cy="400" r="1.2" fill="#000"/>
+      <circle cx="160" cy="400" r="1.2" fill="#000"/>
+      <circle cx="220" cy="400" r="1.2" fill="#000"/>
+      <circle cx="280" cy="400" r="1.2" fill="#000"/>
+      <circle cx="340" cy="400" r="1.2" fill="#000"/>
+      <circle cx="400" cy="400" r="1.2" fill="#000"/>
+      <circle cx="460" cy="400" r="1.2" fill="#000"/>
+      <circle cx="520" cy="400" r="1.2" fill="#000"/>
+      <circle cx="580" cy="400" r="1.2" fill="#000"/>
+      <circle cx="640" cy="400" r="1.2" fill="#000"/>
+      <circle cx="700" cy="400" r="1.2" fill="#000"/>
+      <circle cx="760" cy="400" r="1.2" fill="#000"/>
+      <circle cx="820" cy="400" r="1.2" fill="#000"/>
+      <circle cx="880" cy="400" r="1.2" fill="#000"/>
+      <circle cx="940" cy="400" r="1.2" fill="#000"/>
+      <circle cx="1000" cy="400" r="1.2" fill="#000"/>
+      <circle cx="1060" cy="400" r="1.2" fill="#000"/>
+    </g>
+    <g>
+      <circle cx="100" cy="500" r="1.2" fill="#000"/>
+      <circle cx="160" cy="500" r="1.2" fill="#000"/>
+      <circle cx="220" cy="500" r="1.2" fill="#000"/>
+      <circle cx="280" cy="500" r="1.2" fill="#000"/>
+      <circle cx="340" cy="500" r="1.2" fill="#000"/>
+      <circle cx="400" cy="500" r="1.2" fill="#000"/>
+      <circle cx="460" cy="500" r="1.2" fill="#000"/>
+      <circle cx="520" cy="500" r="1.2" fill="#000"/>
+      <circle cx="580" cy="500" r="1.2" fill="#000"/>
+      <circle cx="640" cy="500" r="1.2" fill="#000"/>
+      <circle cx="700" cy="500" r="1.2" fill="#000"/>
+      <circle cx="760" cy="500" r="1.2" fill="#000"/>
+      <circle cx="820" cy="500" r="1.2" fill="#000"/>
+      <circle cx="880" cy="500" r="1.2" fill="#000"/>
+      <circle cx="940" cy="500" r="1.2" fill="#000"/>
+      <circle cx="1000" cy="500" r="1.2" fill="#000"/>
+      <circle cx="1060" cy="500" r="1.2" fill="#000"/>
+    </g>
+  </g>
+
+  <!-- === Central constellation / knowledge network === -->
+
+  <!-- Outer orbital ring -->
+  <g class="orbit-slow" opacity="0.06">
+    <circle cx="600" cy="300" r="240" stroke="#000" stroke-width="0.5" fill="none"/>
+  </g>
+
+  <!-- Large geometric arcs - the ecosystem boundary -->
+  <g opacity="0.1">
+    <path d="M 350 300 A 250 250 0 0 1 600 50" stroke="#000" stroke-width="0.8" fill="none"/>
+    <path d="M 600 550 A 250 250 0 0 1 850 300" stroke="#000" stroke-width="0.8" fill="none"/>
+    <path d="M 420 120 A 220 220 0 0 1 780 120" stroke="#000" stroke-width="0.5" fill="none"/>
+    <path d="M 420 480 A 220 220 0 0 0 780 480" stroke="#000" stroke-width="0.5" fill="none"/>
+  </g>
+
+  <!-- === Flowing connection paths (knowledge flowing through the network) === -->
+
+  <!-- Primary flow paths - connecting the three product nodes -->
+  <!-- Engage (left) to Educate (center) -->
+  <path d="M 280 280 C 350 240, 420 260, 500 270"
+        stroke="url(#lineGrad1)" stroke-width="1.5" fill="none" class="flow-line" opacity="0.5"/>
+  <!-- Educate (center) to Empower (right) -->
+  <path d="M 700 270 C 780 260, 850 240, 920 280"
+        stroke="url(#lineGrad1)" stroke-width="1.5" fill="none" class="flow-line" opacity="0.5"/>
+  <!-- Cross connection - the feedback loop -->
+  <path d="M 280 320 C 400 380, 500 360, 600 340 C 700 320, 800 360, 920 320"
+        stroke="url(#lineGrad2)" stroke-width="1" fill="none" class="flow-line-reverse" opacity="0.3"/>
+
+  <!-- Secondary neural paths -->
+  <path d="M 200 180 C 300 200, 380 160, 480 190"
+        stroke="#333" stroke-width="0.8" fill="none" class="flow-line-slow" opacity="0.25"/>
+  <path d="M 720 190 C 820 160, 900 200, 1000 180"
+        stroke="#333" stroke-width="0.8" fill="none" class="flow-line-slow" opacity="0.25"/>
+  <path d="M 200 420 C 300 400, 380 440, 480 410"
+        stroke="#333" stroke-width="0.8" fill="none" class="flow-line-slow" opacity="0.25"/>
+  <path d="M 720 410 C 820 440, 900 400, 1000 420"
+        stroke="#333" stroke-width="0.8" fill="none" class="flow-line-slow" opacity="0.25"/>
+
+  <!-- Vertical flow paths -->
+  <path d="M 440 140 C 460 200, 430 260, 450 320"
+        stroke="#444" stroke-width="0.7" fill="none" class="flow-line" opacity="0.2"/>
+  <path d="M 760 140 C 740 200, 770 260, 750 320"
+        stroke="#444" stroke-width="0.7" fill="none" class="flow-line" opacity="0.2"/>
+  <path d="M 600 120 C 580 200, 620 280, 600 360"
+        stroke="#333" stroke-width="0.8" fill="none" class="flow-line-reverse" opacity="0.2"/>
+
+  <!-- Diagonal connectors -->
+  <path d="M 340 160 L 500 270" stroke="#555" stroke-width="0.5" fill="none" class="shimmer"/>
+  <path d="M 860 160 L 700 270" stroke="#555" stroke-width="0.5" fill="none" class="shimmer-delayed"/>
+  <path d="M 340 440 L 500 330" stroke="#555" stroke-width="0.5" fill="none" class="shimmer-delayed"/>
+  <path d="M 860 440 L 700 330" stroke="#555" stroke-width="0.5" fill="none" class="shimmer"/>
+
+  <!-- === Three primary nodes - Engage, Educate, Empower === -->
+
+  <!-- LEFT NODE: "Engage" - The Platform (hexagonal shape) -->
+  <g class="float-slow">
+    <g filter="url(#softGlow)" opacity="0.08">
+      <circle cx="280" cy="300" r="45" fill="#000"/>
+    </g>
+    <polygon points="280,258 318,279 318,321 280,342 242,321 242,279"
+             stroke="#111" stroke-width="1.5" fill="white" opacity="0.95"/>
+    <polygon points="280,268 310,284 310,316 280,332 250,316 250,284"
+             stroke="#333" stroke-width="0.5" fill="none" opacity="0.4"/>
+    <!-- Inner icon: grid/layout representing the platform -->
+    <rect x="268" y="288" width="10" height="10" rx="1" fill="#111" opacity="0.7"/>
+    <rect x="282" y="288" width="10" height="10" rx="1" fill="#111" opacity="0.5"/>
+    <rect x="268" y="302" width="10" height="10" rx="1" fill="#111" opacity="0.5"/>
+    <rect x="282" y="302" width="10" height="10" rx="1" fill="#111" opacity="0.3"/>
+  </g>
+
+  <!-- CENTER NODE: "Educate" - Astra AI (diamond/star shape, largest) -->
+  <g class="float-medium">
+    <g filter="url(#softGlow)" opacity="0.1">
+      <circle cx="600" cy="300" r="55" fill="#000"/>
+    </g>
+    <!-- Outer diamond -->
+    <polygon points="600,240 660,300 600,360 540,300"
+             stroke="#000" stroke-width="2" fill="white" opacity="0.95"/>
+    <!-- Inner diamond -->
+    <polygon points="600,260 640,300 600,340 560,300"
+             stroke="#222" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <!-- Core diamond -->
+    <polygon points="600,278 622,300 600,322 578,300"
+             stroke="#111" stroke-width="1" fill="#111" opacity="0.15"/>
+    <!-- Star burst lines from center -->
+    <line x1="600" y1="280" x2="600" y2="255" stroke="#111" stroke-width="0.8" opacity="0.4"/>
+    <line x1="620" y1="300" x2="645" y2="300" stroke="#111" stroke-width="0.8" opacity="0.4"/>
+    <line x1="600" y1="320" x2="600" y2="345" stroke="#111" stroke-width="0.8" opacity="0.4"/>
+    <line x1="580" y1="300" x2="555" y2="300" stroke="#111" stroke-width="0.8" opacity="0.4"/>
+  </g>
+
+  <!-- RIGHT NODE: "Empower" - Gyan Tutor (circular, organic) -->
+  <g class="float-fast">
+    <g filter="url(#softGlow)" opacity="0.08">
+      <circle cx="920" cy="300" r="45" fill="#000"/>
+    </g>
+    <circle cx="920" cy="300" r="38" stroke="#111" stroke-width="1.5" fill="white" opacity="0.95"/>
+    <circle cx="920" cy="300" r="28" stroke="#333" stroke-width="0.5" fill="none" opacity="0.4"/>
+    <!-- Inner icon: brain/neural pattern -->
+    <path d="M 908 295 C 910 285, 920 283, 920 293 C 920 283, 930 285, 932 295"
+          stroke="#111" stroke-width="1" fill="none" opacity="0.6"/>
+    <path d="M 908 300 C 912 310, 928 310, 932 300"
+          stroke="#111" stroke-width="1" fill="none" opacity="0.5"/>
+    <circle cx="920" cy="298" r="3" fill="#111" opacity="0.3"/>
+  </g>
+
+  <!-- === Satellite nodes (smaller - learners, educators, content) === -->
+
+  <!-- Top cluster -->
+  <g class="pulse-node">
+    <circle cx="440" cy="150" r="6" stroke="#222" stroke-width="1" fill="white"/>
+    <circle cx="440" cy="150" r="2.5" fill="#222" opacity="0.5"/>
+  </g>
+  <g class="pulse-node-delayed">
+    <circle cx="600" cy="110" r="8" stroke="#111" stroke-width="1" fill="white"/>
+    <circle cx="600" cy="110" r="3.5" fill="#111" opacity="0.5"/>
+  </g>
+  <g class="pulse-node-delayed2">
+    <circle cx="760" cy="150" r="6" stroke="#222" stroke-width="1" fill="white"/>
+    <circle cx="760" cy="150" r="2.5" fill="#222" opacity="0.5"/>
+  </g>
+
+  <!-- Bottom cluster -->
+  <g class="pulse-node-delayed2">
+    <circle cx="440" cy="450" r="5" stroke="#333" stroke-width="0.8" fill="white"/>
+    <circle cx="440" cy="450" r="2" fill="#333" opacity="0.4"/>
+  </g>
+  <g class="pulse-node">
+    <circle cx="600" cy="480" r="7" stroke="#222" stroke-width="1" fill="white"/>
+    <circle cx="600" cy="480" r="3" fill="#222" opacity="0.4"/>
+  </g>
+  <g class="pulse-node-delayed">
+    <circle cx="760" cy="450" r="5" stroke="#333" stroke-width="0.8" fill="white"/>
+    <circle cx="760" cy="450" r="2" fill="#333" opacity="0.4"/>
+  </g>
+
+  <!-- Far left satellites -->
+  <g class="pulse-node-delayed">
+    <circle cx="140" cy="220" r="4" stroke="#444" stroke-width="0.7" fill="white"/>
+    <circle cx="140" cy="220" r="1.5" fill="#444" opacity="0.4"/>
+  </g>
+  <g class="pulse-node">
+    <circle cx="160" cy="380" r="3.5" stroke="#444" stroke-width="0.7" fill="white"/>
+    <circle cx="160" cy="380" r="1.5" fill="#444" opacity="0.3"/>
+  </g>
+
+  <!-- Far right satellites -->
+  <g class="pulse-node">
+    <circle cx="1060" cy="220" r="4" stroke="#444" stroke-width="0.7" fill="white"/>
+    <circle cx="1060" cy="220" r="1.5" fill="#444" opacity="0.4"/>
+  </g>
+  <g class="pulse-node-delayed2">
+    <circle cx="1040" cy="380" r="3.5" stroke="#444" stroke-width="0.7" fill="white"/>
+    <circle cx="1040" cy="380" r="1.5" fill="#444" opacity="0.3"/>
+  </g>
+
+  <!-- Mid-range satellites -->
+  <g class="pulse-node-delayed">
+    <circle cx="340" cy="180" r="4" stroke="#555" stroke-width="0.6" fill="white"/>
+  </g>
+  <g class="pulse-node-delayed2">
+    <circle cx="860" cy="180" r="4" stroke="#555" stroke-width="0.6" fill="white"/>
+  </g>
+  <g class="pulse-node">
+    <circle cx="340" cy="420" r="3.5" stroke="#555" stroke-width="0.6" fill="white"/>
+  </g>
+  <g class="pulse-node-delayed">
+    <circle cx="860" cy="420" r="3.5" stroke="#555" stroke-width="0.6" fill="white"/>
+  </g>
+
+  <!-- Tiny ambient particles -->
+  <circle cx="500" cy="200" r="1.5" fill="#333" opacity="0.2" class="shimmer"/>
+  <circle cx="700" cy="200" r="1.5" fill="#333" opacity="0.2" class="shimmer-delayed"/>
+  <circle cx="500" cy="400" r="1.5" fill="#333" opacity="0.15" class="shimmer-delayed"/>
+  <circle cx="700" cy="400" r="1.5" fill="#333" opacity="0.15" class="shimmer"/>
+  <circle cx="380" cy="300" r="1" fill="#444" opacity="0.2" class="shimmer"/>
+  <circle cx="820" cy="300" r="1" fill="#444" opacity="0.2" class="shimmer-delayed"/>
+  <circle cx="480" cy="240" r="1" fill="#555" opacity="0.15" class="shimmer"/>
+  <circle cx="720" cy="240" r="1" fill="#555" opacity="0.15" class="shimmer-delayed"/>
+  <circle cx="480" cy="360" r="1" fill="#555" opacity="0.15" class="shimmer-delayed"/>
+  <circle cx="720" cy="360" r="1" fill="#555" opacity="0.15" class="shimmer"/>
+
+  <!-- === Thin geometric accent lines === -->
+  <g opacity="0.06">
+    <!-- Horizontal scan line -->
+    <line x1="100" y1="300" x2="1100" y2="300" stroke="#000" stroke-width="0.5"/>
+    <!-- Vertical center line -->
+    <line x1="600" y1="50" x2="600" y2="550" stroke="#000" stroke-width="0.3"/>
+  </g>
+
+  <!-- === Edge fade overlays (so it blends into the white page) === -->
+  <defs>
+    <linearGradient id="fadeLeftEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fadeRightEdge" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fadeTopEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fadeBottomEdge" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="120" height="600" fill="url(#fadeLeftEdge)"/>
+  <rect x="1080" y="0" width="120" height="600" fill="url(#fadeRightEdge)"/>
+  <rect x="0" y="0" width="1200" height="80" fill="url(#fadeTopEdge)"/>
+  <rect x="0" y="520" width="1200" height="80" fill="url(#fadeBottomEdge)"/>
+</svg>

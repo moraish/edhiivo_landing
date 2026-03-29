@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — edhivo</title>
+  <meta name="description" content="Learn about edhivo — who we are, our mission, and why we build tools for education.">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="wordmark" aria-label="edhivo home">
+        <svg class="wordmark-icon" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L28 10V22L16 30L4 22V10L16 2Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span>edhivo</span>
+      </a>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="legal-page">
+      <div class="container">
+        <h1 class="legal-title">About Us</h1>
+
+        <div class="legal-content">
+          <section>
+            <h2>Who We Are</h2>
+            <p>Edhivo is a small team passionate about education. We build software tools that help students learn more effectively and help educators deliver better experiences.</p>
+          </section>
+
+          <section>
+            <h2>Our Mission</h2>
+            <p>We believe the right tools can make learning stick. Our mission is to build simple, focused products that remove friction from the learning process — whether that's mastering vocabulary, taking interactive quizzes, or tracking progress over time.</p>
+          </section>
+
+          <section>
+            <h2>What We Build</h2>
+            <p>We currently offer two products:</p>
+            <ul>
+              <li><strong>The Platform</strong> — an interactive learning platform with quizzes, flashcards, and real-time analytics, built for students and educators.</li>
+              <li><strong>Vocably</strong> — a GRE vocabulary app powered by spaced repetition to help students retain words long-term.</li>
+            </ul>
+            <p>We're always working on new ideas. If you have a suggestion or want to collaborate, we'd love to hear from you.</p>
+          </section>
+
+          <section>
+            <h2>Get in Touch</h2>
+            <p>Reach us at <a href="mailto:tryedhivo@gmail.com">tryedhivo@gmail.com</a>.</p>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none;">
+        <span>&copy; <script>document.write(new Date().getFullYear())</script> Edhivo. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById("nav");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 8);
+    }, { passive: true });
+  </script>
+</body>
+</html>
