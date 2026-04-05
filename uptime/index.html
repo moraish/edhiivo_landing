@@ -347,13 +347,11 @@
     // UptimeRobot public status page slug — no API key needed
     const PSP_SLUG = 'AXpUyeRNBE';
 
-    // UptimeRobot status codes
+    // UptimeRobot statusClass values
     const STATUS = {
-      0: { label: 'Paused',      cls: 'status-unknown',     dot: 'dot-unknown'  },
-      1: { label: 'Checking',    cls: 'status-unknown',     dot: 'dot-unknown'  },
-      2: { label: 'Operational', cls: 'status-operational', dot: 'dot-up'       },
-      8: { label: 'Degraded',    cls: 'status-degraded',    dot: 'dot-degraded' },
-      9: { label: 'Outage',      cls: 'status-down',        dot: 'dot-down'     },
+      'success': { label: 'Operational', cls: 'status-operational', dot: 'dot-up'       },
+      'danger':  { label: 'Outage',      cls: 'status-down',        dot: 'dot-down'     },
+      'warning': { label: 'Degraded',    cls: 'status-degraded',    dot: 'dot-degraded' },
     };
 
     function formatUptime(ratio) {
@@ -370,14 +368,13 @@
       return `${hours}h ago`;
     }
 
-    function renderServices(monitors) {
+    function renderServices(monitors, counts) {
       const list = document.getElementById('services-list');
       const banner = document.getElementById('overall-banner');
       const title = document.querySelector('.status-title');
 
-      const allUp = monitors.every(m => m.status === 2);
-      const anyDown = monitors.some(m => m.status === 9);
-      const anyDegraded = monitors.some(m => m.status === 8);
+      const allUp = counts.down === 0 && counts.up === counts.total;
+      const anyDown = counts.down > 0;
 
       if (allUp) {
         title.textContent = 'All systems operational';
@@ -395,7 +392,7 @@
           <span class="overall-text">One or more services are down</span>
           <span class="overall-updated">Updated ${timeAgo(Date.now())}</span>
         `;
-      } else if (anyDegraded) {
+      } else {
         title.textContent = 'Degraded performance';
         banner.className = 'overall-banner has-issues';
         banner.innerHTML = `
@@ -403,26 +400,17 @@
           <span class="overall-text">Degraded performance detected</span>
           <span class="overall-updated">Updated ${timeAgo(Date.now())}</span>
         `;
-      } else {
-        title.textContent = 'Checking systems';
-        banner.className = 'overall-banner';
-        banner.innerHTML = `
-          <span class="overall-dot dot-unknown"></span>
-          <span class="overall-text">Checking systems…</span>
-        `;
       }
 
-      // Public API uses camelCase field names
       list.innerHTML = monitors.map(m => {
-        const s = STATUS[m.status] || STATUS[0];
-        const uptime = m.customUptimeRatio ? formatUptime(m.customUptimeRatio) : '—';
+        const s = STATUS[m.statusClass] || { label: 'Unknown', cls: 'status-unknown', dot: 'dot-unknown' };
+        const uptime = m['30dRatio'] ? formatUptime(m['30dRatio'].ratio) : '—';
 
         return `
           <div class="service-row">
             <span class="service-indicator ${s.dot}"></span>
             <div style="flex:1;min-width:0">
-              <span class="service-name">${escapeHtml(m.friendlyName)}</span>
-              <span class="service-url">${escapeHtml(m.url)}</span>
+              <span class="service-name">${escapeHtml(m.name)}</span>
             </div>
             <div class="service-uptime">
               <strong>${uptime}</strong>
@@ -459,7 +447,7 @@
         const res = await fetch(`https://stats.uptimerobot.com/api/getMonitorList/${PSP_SLUG}`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-        renderServices(data.psp.monitors || []);
+        renderServices(data.psp.monitors || [], data.statistics.counts);
       } catch (err) {
         showError('Unable to fetch status. Please try again later.');
         console.error('Status fetch failed:', err);
