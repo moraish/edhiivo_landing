@@ -253,9 +253,54 @@
       .service-name { min-width: 100px; }
       .uptime-bars { height: 24px; }
     }
+
+    /* Uptime bar tooltip */
+    #bar-tooltip {
+      position: fixed;
+      z-index: 100;
+      pointer-events: none;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      color: var(--text);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.1s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    #bar-tooltip.visible {
+      opacity: 1;
+    }
+
+    #bar-tooltip .tip-date {
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    #bar-tooltip .tip-ratio {
+      color: var(--text-muted);
+    }
+
+    #bar-tooltip .tip-status {
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .tip-green  { color: #22c55e; }
+    .tip-yellow { color: #eab308; }
+    .tip-red    { color: #ef4444; }
+    .tip-grey   { color: var(--text-muted); }
   </style>
 </head>
 <body>
+  <div id="bar-tooltip">
+    <div class="tip-date"></div>
+    <div class="tip-ratio"></div>
+    <div class="tip-status"></div>
+  </div>
 
   <!-- Navigation -->
   <header class="nav scrolled" id="nav">
@@ -440,11 +485,7 @@
         const uptime = m['30dRatio'] ? formatUptime(m['30dRatio'].ratio) : '—';
 
         const bars = (m.dailyRatios || []).map(d => {
-          const noData = d.color === 'grey';
-          const tip = noData
-            ? `${d.date}: No data`
-            : `${d.date}: ${parseFloat(d.ratio).toFixed(2)}%`;
-          return `<div class="uptime-bar" style="background:${barColor(d)}" title="${tip}"></div>`;
+          return `<div class="uptime-bar" style="background:${barColor(d)}" data-date="${d.date}" data-ratio="${d.ratio}" data-color="${d.color}"></div>`;
         }).join('');
 
         return `
@@ -493,6 +534,48 @@
         console.error('Status fetch failed:', err);
       }
     }
+
+    // Uptime bar tooltip
+    const tooltip = document.getElementById('bar-tooltip');
+    const tipDate = tooltip.querySelector('.tip-date');
+    const tipRatio = tooltip.querySelector('.tip-ratio');
+    const tipStatus = tooltip.querySelector('.tip-status');
+
+    const STATUS_LABEL = {
+      grey:   { text: 'No data',         cls: 'tip-grey'   },
+      green:  { text: 'Operational',     cls: 'tip-green'  },
+      blue:   { text: 'Partial outage',  cls: 'tip-yellow' },
+      yellow: { text: 'Degraded',        cls: 'tip-yellow' },
+      red:    { text: 'Outage',          cls: 'tip-red'    },
+    };
+
+    document.addEventListener('mousemove', e => {
+      const bar = e.target.closest('.uptime-bar');
+      if (!bar) {
+        tooltip.classList.remove('visible');
+        return;
+      }
+
+      const { date, ratio, color } = bar.dataset;
+      const s = STATUS_LABEL[color] || STATUS_LABEL.grey;
+
+      tipDate.textContent = date;
+      tipRatio.textContent = color === 'grey' ? '' : `${parseFloat(ratio).toFixed(2)}% uptime`;
+      tipStatus.textContent = s.text;
+      tipStatus.className = `tip-status ${s.cls}`;
+
+      const x = e.clientX;
+      const y = e.clientY;
+      const tw = tooltip.offsetWidth;
+      const th = tooltip.offsetHeight;
+      const pad = 12;
+
+      tooltip.style.left = `${Math.min(x + pad, window.innerWidth - tw - pad)}px`;
+      tooltip.style.top  = `${y - th - pad}px`;
+      tooltip.classList.add('visible');
+    });
+
+    document.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
 
     // Nav scroll effect (same as main site)
     const nav = document.getElementById('nav');
