@@ -5,6 +5,14 @@
 
 const products = [
   {
+    name: "Vaani",
+    tag: "Interactive Audiobooks",
+    description: "Audiobooks you can talk to. Ask a question out loud and the narrator answers, then picks the story back up.",
+    cta: "Try Vaani",
+    type: "link",
+    url: "https://vaani.edhivo.com",
+  },
+  {
     name: "The Platform",
     tag: "Learning Platform",
     description: "Interactive learning with quizzes, flashcards, and real-time analytics — built for students and educators.",
